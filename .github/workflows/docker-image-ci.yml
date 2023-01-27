@@ -3,6 +3,7 @@ name: Build and push docker image
 on:
   push:
     branches: ["main"]
+    tags: ["v*"]
 
 env:
   IMAGE_NAME: ${{ github.repository }}
@@ -22,15 +23,22 @@ jobs:
         with:
           images: |
             # DockerHub
-            custom-backend
+            ${{ env.IMAGE_NAME }}
             # GHCR
-            docker.io/custom-backend
+            ${{ env.GHCR }}/${{ env.IMAGE_NAME }}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
-          username: saidfarah
+          username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.GHCR }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
