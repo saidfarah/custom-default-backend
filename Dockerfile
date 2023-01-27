@@ -11,7 +11,7 @@ COPY etc/nginx.conf /etc/nginx/nginx.conf
 COPY etc/default.conf /etc/nginx/conf.d/default.conf
 
 # Resources
-COPY content/ /var/www/html/
+COPY custom-backend/content/ /var/www/html/
 
 EXPOSE 8080
 
