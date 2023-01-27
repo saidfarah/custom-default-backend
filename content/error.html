@@ -1,54 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Yapily - Error - <!--# echo var="status" default="" --></title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-            crossorigin="anonymous"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--# if expr="$status = 502" -->
-        <meta http-equiv="refresh" content="5" />
-        <!--# endif -->
-        <style>
-            * {
-                line-height: 1.2;
-                margin: 0;
-            }
+<head>
+    <title> Yapily - 404 </title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+    .navbar {
+        background: #003839;
+        border-bottom: 1px solid hsla(0, 0%, 100%, .25);
+    }
 
-            html {
-                color: #888;
-                font-family: sans-serif;
-                text-align: center;
-            }
+    .header {
+        background: transparent;
+        height: 96px;
+        z-index: 1;
+        width: 100%;
+    }
 
-            h1 {
-                color: #555;
-                font-size: 2em;
-                font-weight: 400;
-            }
+    .form-section-title, .h1, .h2, .h3, .h4, .h5, .h6, .modal-card-title, h1, h2, h3, h4, h5, h6 {
+        font-weight: 400;
+        font-family: Inter, sans-serif;
+        margin-top: 0;
+        margin-bottom: .67em;
+        line-height: 125%;
+    }
 
-            p {
-                margin: 0 auto;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
-            <!--# if expr="$status = 502" -->
-            <h1>Looks like we're having trouble.</h1>
-            <p>You will be redirected in a few seconds...</p>
-            <!--# else -->
-            <h1>
-                <!--# echo var="status" default="" -->
-                <!--# echo var="status_emoji" default="" -->
-            </h1>
-            <p>
-                <!--# echo var="status_text" default="" -->
-            </p>
-            <!--# endif -->
+    h3 {
+        font-size: 2.824rem;
+    }
+
+    .errorMsg_white {
+        background-color: #fff;
+        color: #003839;
+        padding-top: 8.5rem;
+        padding-bottom: 8.5rem;
+    }
+
+    p {
+        color: #272827;
+        margin-bottom: 1em;
+    }
+
+
+    a:hover {
+        color: white !important;
+        text-decoration: none;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .navbar-items {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        margin-top: 1.5rem;
+        flex: 1 1;
+    }
+
+    .navbuttons {
+        border: 1.5px solid #fff;
+        border-radius: 3rem;
+        padding: 8px 16px;
+        overflow: hidden;
+        margin-right: 20px;
+        background: #003839;
+        color: white;
+    }
+
+    .getStartedButton {
+        border: 1.5px solid #fff;
+        border-radius: 3rem;
+        padding: 8px 16px;
+        overflow: hidden;
+        background: #fff;
+        color: #003839;
+    }
+
+    .getStartedButton:hover {
+        color: #003839 !important;
+    }
+
+    .errorMsg_white a {
+        position: relative;
+        line-height: 125%;
+        color: #191919;
+        border-radius: 0;
+        border-bottom: 1px solid #63dfb3;
+        transition: all .3s;
+    }
+
+    .errorMsg_white a:hover {
+        color: #63dfb3 !important;
+        background-color: #f0fcf8;
+    }
+</style>
+<body>
+
+<nav class="navbar navbar-expand-sm ">
+    <div class="container">
+        <div class="row header">
+            <div class="mr-auto">
+                <a href="/">
+                    <svg data-testid="header-logo" fill="none" height="96" viewBox="0 0 145 96" width="145"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_709_18614)">
+                            <path d="M103.905 32.001H97.9348V63.9989H112.033L115.462 58.7899H103.905V32.001Z"
+                                  fill="white"></path>
+                            <path d="M89.6583 32.001H83.6711V63.9989H89.6583V32.001Z" fill="white"></path>
+                            <path d="M16.2813 64H22.8056L27.0478 57.5695H40.182V63.999H46.1524L46.1608 32H37.3866L16.2803 64H16.2813ZM30.4794 52.3678L40.183 37.6586V52.3678H30.4794Z"
+                                  fill="white"></path>
+                            <path d="M74.1415 34.8893C71.7591 32.776 69.0159 32 64.9073 32H54.4287V63.9979H60.4159V37.2247H65.2275C67.2667 37.2247 68.8208 37.6868 70.0005 38.8696C70.98 39.8511 71.5609 41.254 71.5609 42.9959C71.5609 44.7378 70.9403 46.2336 69.9014 47.2193C68.7186 48.3416 67.2145 48.7672 65.2275 48.7672H60.4159L65.3224 53.8542C69.139 53.8542 71.8311 53.0333 74.13 51.0077C76.3486 49.054 77.5658 46.2085 77.5658 42.9281C77.5658 39.6477 76.3444 36.8419 74.1425 34.8893H74.1415Z"
+                                  fill="white"></path>
+                            <path d="M116.915 32L127.471 47.9995L116.915 64H123.589L134.143 47.9995L123.589 32H116.915Z"
+                                  fill="white"></path>
+                            <path d="M138.027 32L130.808 42.9417H137.479L144.699 32H138.027Z" fill="white"></path>
+                            <path d="M6.67349 32H0L10.5558 47.9995L0 64H6.67349L17.2282 47.9995L6.67349 32Z"
+                                  fill="white"></path>
+                            <path d="M27.784 32H21.1116L13.8926 42.9417H20.564L27.784 32Z" fill="white"></path>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_709_18614">
+                                <rect fill="white" height="32" transform="translate(0 32)" width="144.699"></rect>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="ml-auto">
+                <div data-v-2910e552="" class="navbar-items">
+                    <a data-v-2910e552=""
+                       href="https://console.yapily.com/"
+                       rel="noopener" class="navbuttons">Log In
+                        <svg data-v-2910e552="" width="13" height="9" viewBox="0 0 13 9" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path data-v-2910e552=""
+                                  d="M12.3537 4.85355C12.5489 4.65829 12.5489 4.34171 12.3537 4.14645L9.17169 0.964466C8.97643 0.769204 8.65985 0.769204 8.46459 0.964466C8.26933 1.15973 8.26933 1.47631 8.46459 1.67157L11.293 4.5L8.46459 7.32843C8.26933 7.52369 8.26933 7.84027 8.46459 8.03553C8.65985 8.2308 8.97643 8.2308 9.17169 8.03553L12.3537 4.85355ZM0.00012207 5H12.0001V4H0.00012207V5Z"
+                                  fill="white"></path>
+                        </svg>
+                    </a>
+                    <a data-v-2910e552=""
+                       href="https://www.yapily.com/get-started/ "
+                       rel="noopener"
+                       class="getStartedButton">Get Started</a>
+                </div>
+            </div>
         </div>
+    </div>
+
+</nav>
+
+<div class="container-fluid mt-5">
+    <div class=" h-100 d-flex align-items-center justify-content-center  mt-5">
+        <div class="offset-md-1  m-auto errorMsg_white"><h3>404,
+            Page not found</h3>
+            <p>Something went wrong and the page you're looking for cannot be found. Try using the navigation
+                above or visit <a href="https://yapily.com">our homepage</a>.</p></div>
+    </div>
+
+</div>
+
+</body>
 </html>
