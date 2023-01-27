@@ -7,8 +7,8 @@ RUN rm /etc/nginx/nginx.conf && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
 # NGINX Config
-COPY etc/nginx.conf /etc/nginx/nginx.conf
-COPY etc/default.conf /etc/nginx/conf.d/default.conf
+COPY custom-backend/etc/nginx.conf /etc/nginx/nginx.conf
+COPY custom-backend/etc/default.conf /etc/nginx/conf.d/default.conf
 
 # Resources
 COPY custom-backend/content/ /var/www/html/
